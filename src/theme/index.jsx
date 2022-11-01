@@ -20,18 +20,12 @@ const { width, height } = Dimensions.get('window')
 export const SIZE = {
     width : width,
     height : height,
-    headerHeight : height * .1,
-    paddingHorizontal : width * .03,
-    bigIcon : height * .035,
-    spacing : height * .015,
-
+   
 }
 
 
 export const FONT = {
-    h1 : { fontSize : SIZE.height * .035, fontFamily : 'Roboto_700Bold'},
-    h2 : { fontSize : 32, fontFamily: 'Roboto_500Medium'},
-    header : { fontSize : SIZE.height * .019, fontWeight : '600', fontFamily: 'Roboto_700Bold'},
+   
 }
 
 export const COLOR = {
