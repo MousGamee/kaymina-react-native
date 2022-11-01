@@ -30,6 +30,7 @@ const Welcome = ({ navigation }) => {
                         width: 150,
                         height: 150
                     }}
+                    resizeMode='contain'
                 />
 
                 <Text style={{ marginTop: SIZES.padding,  }}>
@@ -66,7 +67,10 @@ const Welcome = ({ navigation }) => {
                     labelStyle={{
                         color: COLORS.primary
                     }}
-                //onPress
+                    onPress={() =>  navigation.reset({
+                        index : 0,
+                        routes : [{ name : 'AuthMain'}]
+                    })}
                 />
             </View>
         </View>

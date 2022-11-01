@@ -1,11 +1,16 @@
 import { NavigationContainer } from "@react-navigation/native"
-import {AuthStack} from "./src/navigation"
+import { Provider } from "react-redux"
+import store from "./src/state/store"
+import MainNav from "./src/navigation/MainNav"
 
 const App = () => {
+
   return (
-    <NavigationContainer>
-      <AuthStack />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <MainNav />
+      </NavigationContainer>
+    </Provider>
   )
 }
 

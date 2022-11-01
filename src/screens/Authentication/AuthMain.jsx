@@ -18,8 +18,12 @@ import {
 } from "../../components";
 import { COLORS, images, SIZES, icons, FONTS } from '../../constants';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../state/features/userSlice';
 
 const AuthMain = () => {
+
+    const dispatch = useDispatch()
 
     const [mode, setMode] = useState('signIn')
     const [email, setEmail] = useState('')
@@ -167,6 +171,7 @@ const AuthMain = () => {
                     labelStyle={{
                         fontSize: SIZES.width * .05
                     }}
+                    onPress={() => dispatch(signIn())}
                 />
 
 
@@ -346,90 +351,90 @@ const AuthMain = () => {
             <View
                 style={{
                     flexDirection: 'row',
-                    height : 80,
-                    alignItems : 'flex-end',
-                    justifyContent : 'center',
-                    marginTop : -30,
-                    marginHorizontal : SIZES.radius,
-                    paddingBottom : SIZES.radius,
-                    backgroundColor : COLORS.light60,
-                    borderBottomLeftRadius : SIZES.radius,
-                    borderBottomRightRadius : SIZES.radius
+                    height: 80,
+                    alignItems: 'flex-end',
+                    justifyContent: 'center',
+                    marginTop: -30,
+                    marginHorizontal: SIZES.radius,
+                    paddingBottom: SIZES.radius,
+                    backgroundColor: COLORS.light60,
+                    borderBottomLeftRadius: SIZES.radius,
+                    borderBottomRightRadius: SIZES.radius
                 }}
             >
                 <Text
-                style={{
-                    color : COLORS.grey,
-                    fontSize : SIZES.width * .035
-                }}
+                    style={{
+                        color: COLORS.grey,
+                        fontSize: SIZES.width * .035
+                    }}
                 >{mode === 'signIn' ? "Don't have an account ?" : "I already have an account"}</Text>
-                <TextButton 
-                 onPress={() => {
-                    if (animationState.current === 'signIn') {
-                        animationState.transitionTo('signUp')
-                        setMode('singUp')
-                    } else {
-                        animationState.transitionTo('signIn')
-                        setMode('signIn')
-                    }
-                }}
-                labelStyle={{
-                    color : COLORS.support3
-                }}
-                label={mode === 'signIn' ? " Create an Account" : " Sign In"}
-                contentContainerStyle={{
-                    backgroundColor : null
-                }}
+                <TextButton
+                    onPress={() => {
+                        if (animationState.current === 'signIn') {
+                            animationState.transitionTo('signUp')
+                            setMode('singUp')
+                        } else {
+                            animationState.transitionTo('signIn')
+                            setMode('signIn')
+                        }
+                    }}
+                    labelStyle={{
+                        color: COLORS.support3
+                    }}
+                    label={mode === 'signIn' ? " Create an Account" : " Sign In"}
+                    contentContainerStyle={{
+                        backgroundColor: null
+                    }}
                 />
             </View>
         )
     }
 
     function renderSocialFooter() {
-        return(
+        return (
             <View
                 style={{
-                    flex : 1,
-                    alignItems : 'center',
-                    justifyContent : 'center',
-                    marginTop : -30,
-                    zIndex : -1
+                    flex: 1,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginTop: -30,
+                    zIndex: -1
                 }}
             >
                 <Text
-                style={{
-                    color : COLORS.dark
-                }}
+                    style={{
+                        color: COLORS.dark
+                    }}
                 >
                     Or log in with
                 </Text>
 
                 <View
                     style={{
-                        flexDirection : 'row',
-                        marginTop : SIZES.radius
+                        flexDirection: 'row',
+                        marginTop: SIZES.radius
                     }}
                 >
-                    <IconButton 
+                    <IconButton
                         icon={icons.twitter}
                         iconStyle={{
-                            tintColor : COLORS.dark
+                            tintColor: COLORS.dark
                         }}
                         contentcontainerStyle={styles.iconButton}
                     />
-                    <IconButton 
+                    <IconButton
                         icon={icons.google}
                         iconStyle={{
-                            tintColor : COLORS.dark
+                            tintColor: COLORS.dark
                         }}
-                        contentcontainerStyle={{...styles.iconButton, marginLeft : SIZES.radius}}
+                        contentcontainerStyle={{ ...styles.iconButton, marginLeft: SIZES.radius }}
                     />
-                    <IconButton 
+                    <IconButton
                         icon={icons.linkedin}
                         iconStyle={{
-                            tintColor : COLORS.dark
+                            tintColor: COLORS.dark
                         }}
-                        contentcontainerStyle={{...styles.iconButton, marginLeft : SIZES.radius}}
+                        contentcontainerStyle={{ ...styles.iconButton, marginLeft: SIZES.radius }}
                     />
 
                 </View>
@@ -437,7 +442,7 @@ const AuthMain = () => {
             </View>
         )
     }
-    
+
     // Render
 
     function renderCountryModal() {
@@ -516,6 +521,7 @@ const AuthMain = () => {
             }}
         >
             <Image source={images.logo}
+                resizeMode='contain'
                 style={{
                     alignSelf: 'center',
                     marginTop: SIZES.padding * 2,
@@ -543,15 +549,15 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        zIndex : 3
+        zIndex: 3
     },
-    iconButton : {
-        width : 55,
-        height : 55,
-        alignItems : 'center',
-        justifyContent : 'center',
-        backgroundColor : COLORS.grey20,
-        borderRadius : SIZES.radius
+    iconButton: {
+        width: 55,
+        height: 55,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: COLORS.grey20,
+        borderRadius: SIZES.radius
     }
 })
 export default AuthMain;

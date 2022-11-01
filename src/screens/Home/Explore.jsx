@@ -1,8 +1,9 @@
 import { View, Text, FlatList, Dimensions, Animated, TouchableOpacity, Pressable } from 'react-native'
-import { FONT, SIZE } from '../theme'
 import { useRef } from 'react'
 import { BlurView } from 'expo-blur'
 import { MaterialIcons } from '@expo/vector-icons';
+import { SIZES, FONTS } from '../../constants';
+import ParalaxFlalist from '../../components/HomeComponent/ParalaxFlalist';
 
 const Explore = () => {
     const scrollY = useRef(new Animated.Value(0)).current
@@ -23,21 +24,21 @@ const Explore = () => {
     return (
         <View style={{ flex: 1 }}>
             <Animated.View style={{
-                height: SIZE.headerHeight,
+                height: SIZES.headerHeight,
                 justifyContent: 'center',
                 alignItems: 'center',
                 position: 'absolute',
-                width: SIZE.width,
+                width: SIZES.width,
                 zIndex: 20,
                 opacity: scrollY.interpolate({
-                    inputRange: [0, SIZE.headerHeight * 2],
+                    inputRange: [0, SIZES.headerHeight * 2],
                     outputRange: [0, 1]
                 })
             }}>
                 <BlurView
-                    style={{ alignItems: 'center', flex: 1, justifyContent: 'center', height: SIZE.headerHeight, width: SIZE.width, paddingTop: SIZE.height * .035, }}
+                    style={{ alignItems: 'center', flex: 1, justifyContent: 'center', height: SIZES.headerHeight, width: SIZES.width, paddingTop: SIZES.height * .035, }}
                 >
-                    <Text style={{ ...FONT.header }}>Explore</Text>
+                    <Text style={{ ...FONTS.header }}>Explore</Text>
                 </BlurView>
             </Animated.View>
 
@@ -50,36 +51,14 @@ const Explore = () => {
                 )}
                 // header list
                 ListHeaderComponent={
-                    <View style={{ width: SIZE.width, paddingTop: SIZE.headerHeight }}>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: SIZE.paddingHorizontal, marginBottom: SIZE.spacing }}>
-                            <Text style={{ ...FONT.h1, }}>Explore</Text>
+                    <View style={{ width: SIZES.width, paddingTop: SIZES.headerHeight }}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: SIZES.paddingHorizontal, marginBottom: SIZES.spacing }}>
+                            <Text style={{ ...FONTS.h1, }}>Explore</Text>
                             <TouchableOpacity>
-                                <MaterialIcons name="insert-emoticon" size={SIZE.bigIcon} color="black" />
+                                <MaterialIcons name="insert-emoticon" SIZES={SIZES.bigIcon} color="black" />
                             </TouchableOpacity>
                         </View>
-                        <FlatList
-                            data={test}
-                            horizontal
-                            keyExtractor={item => item.title}
-                            showsHorizontalScrollIndicator={false}
-                            pagingEnabled
-                            snapToInterval={SIZE.width / 2}
-                            renderItem={({ item, index }) => {
-                                return (
-                                    <Pressable
-                                        onPress={() => console.log(index)}
-                                        style={{
-                                            width: SIZE.width / 2,
-                                            height: SIZE.height / 2.9,
-                                            backgroundColor: '#AEAEAE',
-                                            marginRight: SIZE.spacing,
-                                            marginLeft: index === 0 ? SIZE.spacing : 0
-                                        }}>
-                                        <Text>{item.title}</Text>
-                                    </Pressable>
-                                )
-                            }}
-                        />
+                       <ParalaxFlalist />
                     </View>
                 }
 
