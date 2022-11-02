@@ -442,6 +442,41 @@ const recentSearch = [
     }
 ]
 
+export const fakeData = [
+    {
+        id: 1,
+        name: 'Robe logue',
+        image: 'https://img.ltwebstatic.com/images3_pi/2021/12/10/16391302644e658665675b568e293051d6a6e11450_thumbnail_900x.webp'
+    },
+    {
+        id: 2,
+        name: 'African chic',
+        image: 'https://img.ltwebstatic.com/images3_pi/2022/02/10/16445052621a550634eb6f080d5191c55170e9645b_thumbnail_900x.webp'
+    },
+    {
+        id: 3,
+        name: 'Robe de soiree',
+        image: 'https://img.ltwebstatic.com/images3_pi/2022/01/17/16423857614552482b98d35eb6d4a059268fd38c7e_thumbnail_900x.webp'
+    },
+    {
+        id: 4,
+        name: 'Sur mesure',
+        image: 'https://img.ltwebstatic.com/images3_pi/2022/03/29/1648537091e2fb951e07e408f7d2ac763bb59eb6d3_thumbnail_900x.webp'
+
+    },
+    {
+        id: 5,
+        name: 'Marriage congolais',
+        image: 'https://i.etsystatic.com/31591854/r/il/26c145/3440722894/il_1588xN.3440722894_de5r.jpg'
+
+    },
+    {
+        id: 6,
+        name: 'Evenement traditionel',
+        image: 'https://img.ltwebstatic.com/images3_pi/2022/02/10/16445052621a550634eb6f080d5191c55170e9645b_thumbnail_900x.webp'
+    },
+]
+
 export default {
     banners,
     flashDeals,
@@ -457,5 +492,6 @@ export default {
     featuredProducts,
     topSearch,
     suggestedSearch,
-    recentSearch
+    recentSearch, 
+    fakeData
 }
