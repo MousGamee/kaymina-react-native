@@ -113,9 +113,14 @@ export const SIZES = {
     bigIcon: height * .035,
     spacing: height * .015,
 
+    //bottom tab
+    tabBarHeight: width * .18,
+
     //home Component
     CARD_WIDTH: width * .65,
     CARD_HEIGHT: width * .98,
+    dotSize : 8,
+    dotIndicator : 8 + ((height * .015) / 2)
 };
 
 export const FONTS = {
